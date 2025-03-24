@@ -2,7 +2,8 @@
 
 namespace App\Interfaces;
 
-interface ReportCategoryRepositoryInterface {
+interface ReportCategoryRepositoryInterface 
+{
   public function getAllReportCategories();
 
   public function getReportCategoryById(int $id);

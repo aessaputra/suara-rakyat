@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Interfaces\AuthRepositoryInterface;
 use App\Interfaces\ResidentRepositoryInterface;
+use App\Interfaces\ReportCategoryRepositoryInterface;
 use App\Repositories\AuthRepository;
 use App\Repositories\ResidentRepository;
+use App\Repositories\ReportCategoryRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

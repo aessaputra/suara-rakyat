@@ -7,9 +7,9 @@ use App\Models\ReportCategory;
 
 class ReportCategoryRepository implements ReportCategoryRepositoryInterface
 {
-  public function getAllResidents()
+  public function getAllReportCategories()
   {
-    return ReportCategories::all();
+    return ReportCategory::all();
   }
 
   public function getReportCategoryById(int $id)
@@ -24,14 +24,14 @@ class ReportCategoryRepository implements ReportCategoryRepositoryInterface
 
   public function updateReportCategory(array $data, int $id)
   {
-    $reportCategory = $this->getResidentById($id);
+    $reportCategory = $this->getReportCategoryById($id);
 
     return $reportCategory->update($data);
   }
 
   public function deleteReportCategory(int $id)
   {
-    $reportCategory = $this->getResidentById($id);
+    $reportCategory = $this->getReportCategoryById($id);
 
     return $reportCategory->delete();
   }

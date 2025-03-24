@@ -2,7 +2,8 @@
 
 namespace App\Interfaces;
 
-interface ResidentRepositoryInterface {
+interface ResidentRepositoryInterface 
+{
   public function getAllResidents();
 
   public function getResidentById(int $id);
