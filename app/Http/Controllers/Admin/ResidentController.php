@@ -53,7 +53,9 @@ class ResidentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $resident = $this->residentRepository->getResidentById($id);
+
+        return view('pages.admin.resident.show', compact('resident'));
     }
 
     /**
@@ -87,6 +89,8 @@ class ResidentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->residentRepository->deleteResident($id);
+        
+        return redirect()->route('admin.resident.index');
     }
 }
