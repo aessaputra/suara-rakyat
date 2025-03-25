@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Interfaces\ReportCategoryRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreReportCategoryRequest;
+use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class ReportCategoryController extends Controller
 {
@@ -30,15 +32,23 @@ class ReportCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReportCategoryRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $data['image'] = $request->file('image')->store('assets/report-category/image', 'public');
+
+        $this->reportCategoryRepository->createReportCategory($data);
+
+        Swal::toast('Data Kategori Berhasil Ditambahkan', 'success')->timerProgressBar();
+ 
+        return redirect()->route('admin.report-category.index');
     }
 
     /**
