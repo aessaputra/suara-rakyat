@@ -12,27 +12,25 @@ class ReportStatusRepository implements ReportStatusRepositoryInterface
     return ReportStatus::all();
   }
 
-  public function getReportById(int $id)
+  public function getReportStatusById(int $id)
   {
-    return ReportStatus::where('id', $id)->first();
+    return ReportStatus::findOrFail($id);
   }
 
-  public function createReportSatus(array $data)
+  public function createReportStatus(array $data)
   {
-    return Report::create($data);
+    return ReportStatus::create($data);
   }
 
   public function updateReportStatus(array $data, int $id)
   {
     $reportStatus = $this->getReportStatusById($id);
-
     return $reportStatus->update($data);
   }
 
   public function deleteReportStatus(int $id)
   {
     $reportStatus = $this->getReportStatusById($id);
-
     return $reportStatus->delete();
   }
 }

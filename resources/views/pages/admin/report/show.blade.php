@@ -64,7 +64,8 @@
             <h6 class="m-0 font-weight-bold text-primary">Progress Laporan</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route('admin.report-status.create') }}" class="btn btn-primary mb-3">Tambah Progress</a>
+            <a href="{{ route('admin.report-status.create', $report->id) }}" class="btn btn-primary mb-3">Tambah
+                Progress</a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -81,12 +82,23 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <img src="{{ asset('storage/' . $status->image) }}" alt="image" width="100">
+                                    @if ($status->image)
+                                        <img src="{{ asset('storage/' . $status->image) }}" alt="image" width="100">
+                                    @else
+                                        -
+                                    @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.report-status.edit', $status->id) }}" class="btn btn-warning">Edit</a>
+                                    {{ $status->status }}
+                                </td>
+                                <td>
+                                    {{ $status->description }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.report-status.edit', $status->id) }}"
+                                        class="btn btn-warning">Edit</a>
 
-                                    <a href="{{ route('admin.report-.show', $status->id) }}" class="btn btn-info">Show</a>
+                                    <a href="{{ route('admin.report.show', $status->id) }}" class="btn btn-info">Show</a>
 
                                     <form action="{{ route('admin.report-status.destroy', $status->id) }}" method="POST"
                                         class="d-inline">
