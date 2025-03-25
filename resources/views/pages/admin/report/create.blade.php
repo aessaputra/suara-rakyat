@@ -3,14 +3,14 @@
 @section('title', 'Tambah Data Laporan')
 
 @section('content')
-    <a href="{{ route('admin.report-category.index') }}" class="btn btn-danger mb-3">Kembali</a>
+    <a href="{{ route('admin.report.index') }}" class="btn btn-danger mb-3">Kembali</a>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Tambah Data</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.report-category.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.report.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="code">Kode</label>
@@ -28,7 +28,8 @@
 
                     <select name="resident_id" class="form-control" @error('resident_id') is-invalid @enderror>
                         @foreach ($residents as $resident)
-                            <option value="{{ $resident->id }}">{{ $resident->user->email }} - {{ $resident->user->name }}
+                            <option value="{{ $resident->id }}" @if (old('resident_id') == $resident->id) selected @endif>
+                                {{ $resident->user->email }} - {{ $resident->user->name }}
                             </option>
                         @endforeach
                     </select>
@@ -45,7 +46,7 @@
                     <select name="report_category_id" class="form-control"
                         @error('report_category_id') is-invalid @enderror>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">
+                            <option value="{{ $category->id }}" @if (old('report_category_id') == $category->id) selected @endif>
                                 {{ $category->name }}
                             </option>
                         @endforeach

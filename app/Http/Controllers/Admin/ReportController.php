@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\ReportRepositoryInterface;
 use App\Interfaces\ReportCategoryRepositoryInterface;
 use App\Interfaces\ResidentRepositoryInterface;
+use App\Http\Requests\StoreReportRequest;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -47,7 +48,7 @@ class ReportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReportRequest $request)
     {
         //
     }
