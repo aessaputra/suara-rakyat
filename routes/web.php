@@ -21,4 +21,5 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'role:admin')->group(
     Route::resource('/resident', ResidentController::class);
     Route::resource('/report-category', ReportCategoryController::class);
     Route::resource('/report', ReportController::class);
+    Route::resource('/report-status', ReporStatusController::class);
 });

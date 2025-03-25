@@ -7,6 +7,7 @@ use App\Interfaces\ReportCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreReportCategoryRequest;
 use App\Http\Requests\UpdateReportCategoryRequest;
+use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class ReportCategoryController extends Controller
 {
