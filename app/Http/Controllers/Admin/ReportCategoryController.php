@@ -95,6 +95,12 @@ class ReportCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+      {
+        $this->reportCategoryRepository->deleteReportCategory($id);
+
+        Swal::toast('Data Kategory Berhasil Dihapus', 'success')->timerProgressBar();
+
+        return redirect()->route('admin.report-category.index');
+    }
     }
 }
