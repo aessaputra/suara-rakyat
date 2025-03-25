@@ -27,7 +27,7 @@ class Report extends Model
         return $this->belongsTo(Resident::class);
     }
 
-    public function category()
+    public function reportCategory()
     {
         // satu lapran dimiliki oleh satu category
         return $this->belongsTo(ReportCategory::class);
