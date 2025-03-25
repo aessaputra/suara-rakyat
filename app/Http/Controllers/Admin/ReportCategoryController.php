@@ -7,7 +7,6 @@ use App\Interfaces\ReportCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreReportCategoryRequest;
 use App\Http\Requests\UpdateReportCategoryRequest;
-use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class ReportCategoryController extends Controller
 {
@@ -101,6 +100,6 @@ class ReportCategoryController extends Controller
         Swal::toast('Data Kategory Berhasil Dihapus', 'success')->timerProgressBar();
 
         return redirect()->route('admin.report-category.index');
-    }
+      }
     }
 }
