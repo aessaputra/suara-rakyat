@@ -3,7 +3,9 @@
 @section('title', 'Home')
 
 @section('content')
-    <h6 class="greeting">Hi, {{ Auth::user()->name }} 👋</h6>
+    @auth
+        <h6 class="greeting">Hi, {{ Auth::user()->name }} 👋</h6>
+    @endauth
     <h4 class="home-headline">Laporkan masalahmu dan kami segera atasi itu</h4>
     <div class="d-flex justify-content-between align-items-center gap-4 py-3 overflow-auto" id="category"
         style="white-space: nowrap;">
