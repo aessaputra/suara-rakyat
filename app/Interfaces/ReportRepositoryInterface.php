@@ -2,9 +2,11 @@
 
 namespace App\Interfaces;
 
-interface ReportRepositoryInterface 
+interface ReportRepositoryInterface
 {
   public function getAllReports();
+
+  public function getLatestReports();
 
   public function getReportById(int $id);
 
