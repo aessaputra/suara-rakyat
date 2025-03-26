@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\ReportRepositoryInterface;
 use App\Models\Report;
+use App\Models\ReportCategory;
 
 class ReportRepository implements ReportRepositoryInterface
 {
@@ -17,14 +18,21 @@ class ReportRepository implements ReportRepositoryInterface
     return Report::latest()->get()->take(5);
   }
 
+  public function getReportById(int $id)
+  {
+    return Report::where('id', $id)->first();
+  }
+
   public function getReportByCode(string $code)
   {
     return Report::where('code', $code)->first();
   }
 
-  public function getReportById(int $id)
+  public function getReportsByCategory(string $category)
   {
-    return Report::where('id', $id)->first();
+    $category = ReportCategory::where('name', $category)->first();
+
+    return Report::where('report_category_id', $category->id)->get();
   }
 
   public function createReport(array $data)
