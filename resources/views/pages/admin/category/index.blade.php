@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Data Masyarakat</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Data Kategori</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -35,8 +35,8 @@
                                     <a href="{{ route('admin.report-category.show', $category->id) }}"
                                         class="btn btn-info">Show</a>
 
-                                    <form action="{{ route('admin.report-category.destroy', $category->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('admin.report-category.destroy', $category->id) }}"
+                                        method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
